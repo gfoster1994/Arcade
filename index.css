@@ -1,5 +1,5 @@
 * {
-    color: purple;
+    box-sizing: border-box;
 }
 
 body {
@@ -7,5 +7,28 @@ body {
     background-image: url("images/footballField.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
+}
 
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.board {
+    border: solid 20px black;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    /* make this a 3x3 grid */
+    display: grid;
+    grid-template-columns: repeat(3, auto)
+}
+
+.cell {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border: 5px solid rgb(7, 39, 7);
 }
