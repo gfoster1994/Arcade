@@ -1,3 +1,11 @@
 * {
     color: purple;
 }
+
+body {
+    margin: 0;
+    background-image: url("images/footballField.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
