@@ -4,9 +4,13 @@
 
 body {
     margin: 0;
-    background-image: url("images/footballField.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
+    padding: 0;
+    background-color:rgb(187, 187, 241);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 10px;
+    /* background-image: url("images/footballField.jpg"); */
+    /* background-size: 100%; */
+    /* background-repeat: no-repeat; */
 }
 
 h1 {
@@ -15,10 +19,15 @@ h1 {
     font-size: 40px;
 }
 
+.setupArea {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .board {
     border: solid 20px black;
-    width: 100vw;
-    height: 100vh;
     justify-content: center;
     align-content: center;
     /* make this a 3x3 grid */
