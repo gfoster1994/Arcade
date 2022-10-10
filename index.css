@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -53,38 +55,18 @@ h2 {
     padding: 50px 50px 50px 50px;
 }
 
-.nameDisplay {
-    padding: 50px 50px 50px 50px;
-}
-
 .board {
     width: 360px;
     height: 360px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .cell {
-    flex: 0 0 120px;
-    display: flex;
-    align-items: center;
+    display: grid;
     justify-content: center;
-    position: relative;
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
   }
 
-  .cell:nth-child(3n+2) { 
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-  }
-
-  .cell:nth-child(n+4):nth-child(-n+6) {
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-  }
-  
-  .cell span {
-    text-transform: uppercase;
-    font-family: monospace;
-    font-size: 3rem;
+  .cell {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid black;
   }
