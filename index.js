@@ -13,7 +13,6 @@ const initialState = {
       [null, null, null]
     ]
   }
-
 //default variable values
 let currentTurn = ""
 let gameMode = 1
@@ -23,7 +22,7 @@ let player2Name = "Player 2"
 //default array as const
 const startingState = Array.from(Array(9).keys())
 //initialize manipulatable array
-let state = {
+let gameState = {
     players: ['x', 'o'],
     board: [
       [null, null, null],
@@ -31,7 +30,6 @@ let state = {
       [null, null, null]
     ]
   }
-
 console.log(startingState)
 console.log(gameState)
 
@@ -85,7 +83,7 @@ function handleCellClick(event) {
 
 // //function for resetting gameState
 // function resetGame() {
-//     gameState = startingState
+//     gameState = startingState //not sure if this works
 //     currentTurn = ""
 //     gameMode = 1
 //     count = 0
@@ -134,7 +132,7 @@ const winConditions= [
 
 // //randomize the initial turn 
 // function randomizeTurn() {
-//     //picks a random between 1 and 2 (exclude zero)
+//     //picks a random number between 1 and 2 (exclude zero)
 //     const randomNumber = Math.round(Math.random()) + 1
 //     if (randomNumber === 1) {
 //         currentTurn = "X"
