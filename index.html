@@ -31,30 +31,27 @@
             <button id="submit1">SUBMIT</button>
           </div>
           <div class = "player2NameEntry">
-            <label for="nameEntry2">ENTER PLAYER 1 NAME:</label>
-            <input type="text" id="player1Name" name="nameEntry2">
+            <label for="nameEntry2">ENTER PLAYER 2 NAME:</label>
+            <input type="text" id="player2Name" name="nameEntry2">
             <button id="submit2">SUBMIT</button>
           </div>
         </div>
     </div>
   </div>
 
-  <div class = "resetArea">
-    <button type="button" id="resetButton">RESET</button>
+  <div class="gameStatusArea">
+    <div class = "playerTurnDisplay">CURRENT TURN:   <span id=""></span>
+    </div>
   </div>
 
-  <div class = "playerTurnDisplay">
-    <h2>Player ? Turn</h2>
-  </div>
-
-  <div class = "gameStatus">
+  <!-- <div class = "gameStatus">
     <h1>PLAYER 1 WINS!</h1>
-  </div>
+  </div> -->
 
   <div class="gameArea">
     <div class = "board" id="board">
-      <div class="cell" ></div>
-      <div class="cell" ></div>
+      <div class="cell" >X</div>
+      <div class="cell" >O</div>
       <div class="cell" ></div>
       <div class="cell" ></div>
       <div class="cell" ></div>
@@ -67,3 +64,7 @@
 
 </body>
 </html>
+
+<div class = "resetArea">
+  <button type="button" id="resetButton">RESET</button>
+</div>
