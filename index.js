@@ -1,51 +1,110 @@
 const board = document.getElementById("board")
-const cellElements = document.getElementById("cell")
+const cellElements = document.querySelectorAll(".cell")
 const mode1PlayerButton = document.getElementById("1PlayerButton")
 const mode2PlayerButton = document.getElementById("2PlayerButton")
 const hardResetButton = document.getElementById("resetButton")
 const player1NameButton = document.getElementById("submit1")
 const player2NameButton = document.getElementById("submit2")
 
+//default variable values
 let currentTurn = ""
 let gameMode = 1
 let count = 0
 let player1Name = "Player 1"
 let player2Name = "Player 2"
-let gameState = {
-    players: ['x', 'o'],
-    board: [
-      [null, null, null],
-      [null, null, null],
-      [null, null, null]
-    ]
-  }
+//default array as const
+const startingState = Array.from(Array(9).keys())
+//initialize manipulatable array
+let state = startingState
 
-function gameSetup() {
-    //click event handlers for game mode selection
-    mode1PlayerButton.addEventListener("click", handleGameMode1)
-    mode2PlayerButton.addEventListener("click", handleGameMode2)
-}
-
-//function for setting board to default
-function buildInitialState() {
-    const startingState= {
-        players: ['x', 'o'],
-        board: [
-          [null, null, null],
-          [null, null, null],
-          [null, null, null]
-        ]
-      }
+//Starting the game
+function runGame () {
+    //add win/draw popup later!!
+    //
+    for (let i = 0; i < cellElements.length; i++) {
+        // //make sure clear all x/o from array
+        // cells[i].innerText = " "
+        cells[i].addEventListener("click", handleCellClick)
+    }
 }
 
-//functions for game mode selection
-function handleGameMode1() {
-    gameMode = 1
-    player2Name = "Computer"
+function handleCellClick() {
+    
 }
-function handleGameMode2() {
-    gameMode = 2
-}
+// console.log(startingState)
+// console.log(gameState)
+
+// //apply event listener, that can only be clicked once, 
+// cellElements.forEach(cell => {
+//     cell.addEventListener("click", handleCellClick)
+// })
+
+// function handleCellClick(event) {
+//     if (event.target.id === null){
+        
+//     }
+// }
+
+// //randomize the starting turn
+// function randomizeTurn() {
+//     randomNumber = Math.round(Math.random()) + 1
+//     console.log(randomNumber)
+//     if (randomNumber === 1) {
+//         currentTurn = "X"
+//     }
+//     else {
+//         currentTurn = "O"
+//     }
+// }
+
+// //change the turn every time this function is called
+// function incrementTurn() {
+//     if (currentTurn === "X") {
+//         currentTurn = "O"
+//     }
+//     else {
+//         currentTurn = "X"
+//     }
+// }
+
+// //click event handlers for game mode selection
+// mode1PlayerButton.addEventListener("click", handleGameMode1)
+// mode2PlayerButton.addEventListener("click", handleGameMode2)
+
+// //functions for game mode selection
+// function handleGameMode1() {
+//     resetGame()
+//     gameMode = 1
+//     player2Name = "Computer"
+// }
+// function handleGameMode2() {
+//     resetGame()
+//     gameMode = 2
+// }
+
+// //function for resetting gameState
+// function resetGame() {
+//     gameState = startingState
+//     currentTurn = ""
+//     gameMode = 1
+//     count = 0
+//     player1Name = "Player 1"
+//     player2Name = "Player 2"
+// }
+
+const winConditions= [
+    //horizontal
+    [0,1,2],
+    [3,4,5], 
+    [6,7,8],
+    //vertical
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    //diagonal
+    [0,4,8],
+    [6,4,2]
+]
 
 // // click event for each cell, call handleClick function,  does not allow more than one click on specific cell
 // cellElements.forEach(cell => {
