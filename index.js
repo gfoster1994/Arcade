@@ -5,6 +5,14 @@ const mode2PlayerButton = document.getElementById("2PlayerButton")
 const hardResetButton = document.getElementById("resetButton")
 const player1NameButton = document.getElementById("submit1")
 const player2NameButton = document.getElementById("submit2")
+const initialState = {
+    players: ['x', 'o'],
+    board: [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null]
+    ]
+  }
 
 //default variable values
 let currentTurn = ""
@@ -15,35 +23,28 @@ let player2Name = "Player 2"
 //default array as const
 const startingState = Array.from(Array(9).keys())
 //initialize manipulatable array
-let state = startingState
+let state = {
+    players: ['x', 'o'],
+    board: [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null]
+    ]
+  }
 
-//Starting the game
-function runGame () {
-    //add win/draw popup later!!
-    //
-    for (let i = 0; i < cellElements.length; i++) {
-        // //make sure clear all x/o from array
-        // cells[i].innerText = " "
-        cells[i].addEventListener("click", handleCellClick)
+console.log(startingState)
+console.log(gameState)
+
+//apply event listener, that can only be clicked once, for each cell
+cellElements.forEach(cell => {
+    cell.addEventListener("click", handleCellClick)
+})
+
+function handleCellClick(event) {
+    if (event.target.id === null){
+        
     }
 }
-
-function handleCellClick() {
-    
-}
-// console.log(startingState)
-// console.log(gameState)
-
-// //apply event listener, that can only be clicked once, 
-// cellElements.forEach(cell => {
-//     cell.addEventListener("click", handleCellClick)
-// })
-
-// function handleCellClick(event) {
-//     if (event.target.id === null){
-        
-//     }
-// }
 
 // //randomize the starting turn
 // function randomizeTurn() {
