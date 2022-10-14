@@ -1,67 +1,93 @@
 const board = document.getElementById("board")
 const cellElements = document.getElementById("cell")
+const mode1PlayerButton = document.getElementById("1PlayerButton")
+const mode2PlayerButton = document.getElementById("2PlayerButton")
+const hardResetButton = document.getElementById("resetButton")
+const player1NameButton = document.getElementById("submit1")
+const player2NameButton = document.getElementById("submit2")
 
-let player1 = document.getElementById("player1Name")
-let player2 = document.getElementById("player2Name")
 let state;
 let currentTurn = null;
+let gameMode = null
 let count = 0;
-
-//determine the game type
-
-document.getElementById("submit1").addEventListener("click", function(){
-    if (player1 === null) {
-        let player1 = "Player 1"
-    }
-})
-document.getElementById("submit2").addEventListener("click", function(){
-    if (player2 === null) {
-        let player1 = "Player 2"
-    }
-})
+let player1Name = "Player 1"
+let player2Name = "Player 2"
 
 
 //randomize the initial turn 
 function randomizeStartingTurn() {
     currentTurn = Math.floor(Math.random(1, 2))
     if (currentTurn = 1) {
-        let currentTurn = "x"
+        currentTurn = "x"
     } else {
-        let currentTurn = "o"
+        currentTurn = "o"
     }
     return currentTurn
+    console.log(currentTurn)
 }
 
-// function setNames() {
-//     if (player1Name === null) {
-//         player1Name = "PLAYER 1"
-//     }
-//     if (player2Name === null) {
-//         player2Name = "PLAYER 2"
+//click event handlers for game mode selection
+mode1PlayerButton.addEventListener("click", function(){
+    gameMode = 1
+    console.log(gameMode)
+    player2Name = "Computer"
+    console.log(player1Name, player2Name)
+    //add function to reset game later
+})
+
+mode2PlayerButton.addEventListener("click", function(){
+    gameMode = 2
+    console.log(gameMode)
+    console.log(player1Name, player2Name)
+    //add function to reset game later
+})
+
+//click event handler to reset game
+hardResetButton.addEventListener("click", function(){
+    console.log("reset!")
+})
+
+//click event handlers for name entries
+player1NameButton.addEventListener("click", function(){
+    player1Name = document.getElementById("player1Name").value
+    console.log(player1Name)
+})
+
+player2NameButton.addEventListener("click", function(){
+    player2Name = (document.getElementById("player2Name").value)
+    console.log(player2Name)
+})
+
+
+
+
+
+
+
+
+
+
+// //initial state of the game
+// function buildInitialState() {
+//     const gameState = {
+//         players: ["x", "o"], 
+//         board: [
+//             [null, null, null], 
+//             [null, null, null],
+//             [null, null, null]
+//         ]
 //     }
 // }
+// // ???
+// function renderState() {
 
-//initial state of the game
-function buildInitialState() {
-    const gameState = {
-        players: ["x", "o"], 
-        board: [
-            [null, null, null], 
-            [null, null, null],
-            [null, null, null]
-        ]
-    }
-}
-// ???
-function renderState() {
-
-}
+// }
 
 
 
-cellElements.addEventListener("click", handleClick() {
+// cellElements.addEventListener("click", handleClick() {
 
-})
+// })
 
 
 
