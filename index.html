@@ -24,47 +24,48 @@
 
     <div class="nameEntryArea">
       <h2>ENTER YOUR NAME:</h2>
-        <div class = "nameEntryInputArea">
-          <div id = "player1NameEntry">
-            <label for="nameEntry1">PLAYER 1:</label>
-            <input type="text" id="player1Name" name="nameEntry1">
-            <button id="submit1">Submit</button>
-          </div> 
-          <div id = "player2NameEntry">
-            <label for="nameEntry2">PLAYER 2:</label>
-            <input type="text" id="player2Name" name="nameEntry2">
-            <button id="submit2">Submit</button>
-          </div>
+        <div class="nameEntryInputArea">
+          <label for="name1">Player 1 Name: </label>
+            <input type="text" id="playerName1" name="name1">
+              <button class="button" id="inputButton1">Submit</button>
+              <br>
+          <label for="name2">Player 2 Name: </label>
+            <input type="text" id="playerName2" name="name2">
+              <button class="button" id ="inputButton2">Submit</button>
         </div>
     </div>
   </div>
 
-  <div class="gameStatusArea">
-    <div class = "playerTurnDisplay">CURRENT TURN:   <span id=""></span>
-    </div>
+  <div class = "gameUpdate">
+    <h2 id="gameUpdateMessage">CHOOSE A GAME MODE TO BEGIN!</h2>
   </div>
 
-  <!-- <div class = "gameStatus">
-    <h1>PLAYER 1 WINS!</h1>
+  <!-- <div class="gameStatusArea">
+      <h3 id="playerTurnDisplay"></h3>
   </div> -->
+
+  <div id="nameDisplayContainer">
+    <h3 id="nameDisplay"></h3>
+  </div>
+
 
   <div class="gameArea">
     <div class = "board" id="board">
-      <div class="cell" id="0">X</div>
-      <div class="cell" id="1">O</div>
-      <div class="cell" id="2"></div>
-      <div class="cell" id="3"></div>
-      <div class="cell" id="4"></div>
-      <div class="cell" id="5"></div>
-      <div class="cell" id="6"></div>
-      <div class="cell" id="7"></div>
-      <div class="cell" id="8"></div>
+      <div class="cell" board-cell></div>
+      <div class="cell" board-cell></div>
+      <div class="cell" board-cell></div>
+      <div class="cell" board-cell></div>
+      <div class="cell" board-cell></div>
+      <div class="cell" board-cell></div>
+      <div class="cell" board-cell></div>
+      <div class="cell" board-cell></div>
+      <div class="cell" board-cell></div>
     </div>
+  </div>
+
+  <div class = "resetArea">
+    <button type="button" id="resetButton">RESET</button>
   </div>
 
 </body>
 </html>
-
-<div class = "resetArea">
-  <button type="button" id="resetButton">RESET</button>
-</div>

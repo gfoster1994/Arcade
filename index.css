@@ -34,7 +34,7 @@ h2 {
     /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-evenly;
 }
 
@@ -44,16 +44,20 @@ h2 {
     align-items: center;
 }
 
-.nameEntryInputArea {
+.nameEntryArea {
     display: flex;
     flex-direction: column;
-    font-size: 15px;
     font-weight: bold;
-    /* align-items: center; */
-    /* justify-content: space-evenly; */
+    font-size: 15px;
 }
 
-.gameStatusArea {
+.gameUpdate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nameDisplayContainer {
     /* border: 5px solid black; */
     display: flex;
     flex-direction: column;
