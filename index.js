@@ -28,26 +28,29 @@ let count = 0
 let player1Name = "Player 1"
 let player2Name = "Player 2"
 
-//run game
-//force game mode choice?
-//optional name entry
+resetGame()
 
-//randomize starting turn
-
-//if game mode = 1
-function computerBehavior () {
+function resetGame() {
+    //default variable values
+    currentTurn = "X"
+    gameMode = 1
+    count = 0
+    player1Name = "Player 1"
+    player2Name = "Player 2"
+    gameUpdates.innerText = "CHOOSE A GAME MODE TO BEGIN!"
     
+    //set all cell elements to ""
+    cellElements.forEach((element) => {
+        element.innerText = "" })
+
+    //randomize the first turn
+    randomizeTurn()
+
+    //reset event listener for all cells
+    cellElements.forEach(cell => {
+        cell.addEventListener("click", handleCellClick)
+    })  
 }
-
-
-
-randomizeTurn()
-
-
-
-
-//only allow one click per cell, on click run handleClick func
-cellElements.forEach(cell => {cell.addEventListener("click", handleCellClick, {once: true})})   
 
 //eventListeners
 mode1PlayerButton.addEventListener("click", handleGameMode1)
@@ -56,36 +59,55 @@ document.getElementById("inputButton1").addEventListener("click", player1NameCha
 document.getElementById("inputButton2").addEventListener("click", player2NameChange) 
 hardResetButton.addEventListener("click", resetGame)
 
+//win and draw checker for every click
 function handleCellClick(event) {
+    gameUpdates.innerText = "CURRENT TURN:"
     const currentCell = event.target
-    currentCell.innerText = currentTurn
-    // currentCell.classList.add(currentTurn)
-    count ++
-    if (checkWin(currentTurn)) {
-        console.log("WINNER!!")
+    if (currentCell.innerText === "") {
+        currentCell.innerText = currentTurn
+        // currentCell.classList.add(currentTurn)
+        count ++
+        if (checkWin(currentTurn)) {
+            win()
+        }
+        //check for draw via no winner and count hits 9 
+        else if (count === 9) {
+            draw()
+        }
+        //switch turns and continue if no draw/win
+        else {
+            switchTurns()
+        }
     }
-    //check for draw via no winner and count hits 9 
-    else if (count === 9) {
-        console.log("DRAW!!")
-    }
-    //switch turns and continue if no draw/win
-    else {
-        switchTurns()
-    }
+}
+
+function draw () {
+    gameUpdates.innerText = "IT'S A DRAW!"
+    cellElements.forEach(cell => {
+        cell.removeEventListener("click", handleCellClick)
+    })  
+}
+
+function win () {
+    gameUpdates.innerText = "WINNER!"
+    cellElements.forEach(cell => {
+        cell.removeEventListener("click", handleCellClick)
+    })  
 }
 
 
 //functions for game mode selection
 //resets game, sets mode to 1 player, defaults player2 to computer
 function handleGameMode1(event) {
-    // resetGame()
+    resetGame()
     gameMode = 1
     // player2NameEntryForm.style.display = "none"
     player2Name = "Computer"
     gameUpdates.innerText = "Now enter your name!"
 }
+
 function handleGameMode2(event) {
-    // resetGame()
+    resetGame()
     gameMode = 2
     player2Name = "Player 2"
     gameUpdates.innerText = "Now enter your names!"
@@ -117,20 +139,7 @@ function updateNames () {
 nameDisplay.innerText = `${player1Name} VS ${player2Name}`
 }
 
-
-function resetGame() {
-    //default variable values
-    let currentTurn = "X"
-    let gameMode = 1
-    let count = 0
-    let player1Name = "Player 1"
-    let player2Name = "Player 2"
-    cellElements.forEach((element) => {
-        element.innerText = ""
-        //CAUSING ISSUES WITH CLICKING BOXES AGAIN AFTER, MAYBE PREVENT DEFAULT??
-    })
-}
-
+//check if all elements in any given win combo array = X or Y
 function checkWin (currentTurn) {
     return winCombos.some((combo) => {
         return combo.every((i) => {
